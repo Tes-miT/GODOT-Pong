@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://gm8xew387enx"]
 
 [ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cxxq0458j2one" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(50, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=1928030905]
+script = ExtResource("1_g2els")
 metadata/_edit_horizontal_guides_ = [-4.0, 4.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1230906118]
