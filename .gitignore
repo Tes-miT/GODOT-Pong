@@ -1,0 +1,24 @@
+# --- Godot Core ---
+.godot/
+*.uid
+.import/
+export_presets.cfg
+
+# --- Addons Logic ---
+# Ignore all plugin content
+addons/**/*
+# Except for the keepalive files that preserve folder names
+!addons/**/.gitkeep
+
+# --- System & Editor ---
+.DS_Store
+Thumbs.db
+*.tmp
+node_modules/
+
+# --- Mono/C# (If using Dotnet version) ---
+.mono/
+bin/
+obj/
+*.csproj
+*.sln

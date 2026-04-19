@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://gm8xew387enx"]
+
+[ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_3vyb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
+size = Vector2(50, 8)
+
+[node name="Player" type="CharacterBody2D" unique_id=1928030905]
+metadata/_edit_horizontal_guides_ = [-4.0, 4.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1230906118]
+shape = SubResource("RectangleShape2D_u8vuu")
+
+[node name="Rectangle" type="Node2D" parent="." unique_id=1899701648]
+position = Vector2(0, 0.0006866455)
+script = ExtResource("1_3vyb7")
+size = Vector2(50, 7.9998474)
+corner_radius = 0.0
+fill_color = Color(0.98039216, 0.98039216, 0.98039216, 1)
+metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"
