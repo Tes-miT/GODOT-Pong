@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
 size = Vector2(50, 8)
 
-[node name="Player" type="CharacterBody2D" unique_id=1928030905]
+[node name="Player" type="StaticBody2D" unique_id=2007588751]
 script = ExtResource("1_g2els")
 metadata/_edit_horizontal_guides_ = [-4.0, 4.0]
 
@@ -16,7 +16,7 @@ shape = SubResource("RectangleShape2D_u8vuu")
 [node name="Rectangle" type="Node2D" parent="." unique_id=1899701648]
 position = Vector2(0, -0.008323669)
 script = ExtResource("1_3vyb7")
-size = Vector2(50, 7.9983673)
+size = Vector2(50, 20)
 corner_radius = 0.0
 fill_color = Color(0.98039216, 0.98039216, 0.98039216, 1)
 metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"
