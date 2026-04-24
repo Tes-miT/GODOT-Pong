@@ -14,9 +14,9 @@ metadata/_edit_horizontal_guides_ = [-4.0, 4.0]
 shape = SubResource("RectangleShape2D_u8vuu")
 
 [node name="Rectangle" type="Node2D" parent="." unique_id=1899701648]
-position = Vector2(0, 0.0006866455)
+position = Vector2(0, -0.008323669)
 script = ExtResource("1_3vyb7")
-size = Vector2(50, 7.9998474)
+size = Vector2(50, 7.9983673)
 corner_radius = 0.0
 fill_color = Color(0.98039216, 0.98039216, 0.98039216, 1)
 metadata/_custom_type_script = "uid://cqmf7u8b7l1yx"

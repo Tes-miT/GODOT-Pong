@@ -1,11 +1,56 @@
 [gd_scene format=3 uid="uid://ct4p4my4mqa3p"]
 
 [ext_resource type="PackedScene" uid="uid://gm8xew387enx" path="res://scenes/player.tscn" id="1_cw7yk"]
+[ext_resource type="PackedScene" uid="uid://caw48rrmiia17" path="res://scenes/ball.tscn" id="2_xy757"]
+[ext_resource type="Script" uid="uid://negc64pkajyj" path="res://scripts/ball.gd" id="3_va2tc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_va2tc"]
+distance = -320.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cw7yk"]
+distance = -292.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xy757"]
+distance = -320.0
 
 [node name="Game (Root)" type="Node2D" unique_id=28182013]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=234832830]
+zoom = Vector2(2, 1)
 
 [node name="Player" parent="." unique_id=1928030905 instance=ExtResource("1_cw7yk")]
 position = Vector2(0, 298)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=234832830]
-zoom = Vector2(2, 1)
+[node name="Ball" parent="." unique_id=1293440621 instance=ExtResource("2_xy757")]
+script = ExtResource("3_va2tc")
+
+[node name="Boundaries" type="Node" parent="." unique_id=1032111583]
+
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=33875556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=679013823]
+position = Vector2(0, -4)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_va2tc")
+
+[node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=1889775040]
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftWall" unique_id=246941093]
+position = Vector2(0, 4)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_cw7yk")
+
+[node name="RightWall" type="StaticBody2D" parent="Boundaries" unique_id=1940255968]
+rotation = 1.5707963
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightWall" unique_id=1267885854]
+position = Vector2(0, 4)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_cw7yk")
+
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=399370622]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=303501491]
+position = Vector2(0, 4)
+shape = SubResource("WorldBoundaryShape2D_xy757")
