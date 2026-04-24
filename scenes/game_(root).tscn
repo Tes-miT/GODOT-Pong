@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://ct4p4my4mqa3p"]
 
 [ext_resource type="PackedScene" uid="uid://gm8xew387enx" path="res://scenes/player.tscn" id="1_cw7yk"]
+[ext_resource type="Script" uid="uid://dgbixvobguwri" path="res://scripts/score.gd" id="1_va2tc"]
 [ext_resource type="PackedScene" uid="uid://caw48rrmiia17" path="res://scenes/ball.tscn" id="2_xy757"]
 [ext_resource type="Script" uid="uid://negc64pkajyj" path="res://scripts/ball.gd" id="3_va2tc"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_va2tc"]
-distance = -320.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va2tc"]
+size = Vector2(576, 16)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cw7yk"]
 distance = -292.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xy757"]
-distance = -320.0
-
 [node name="Game (Root)" type="Node2D" unique_id=28182013]
+script = ExtResource("1_va2tc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=234832830]
 zoom = Vector2(2, 1)
@@ -26,12 +25,18 @@ script = ExtResource("3_va2tc")
 
 [node name="Boundaries" type="Node" parent="." unique_id=1032111583]
 
-[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=33875556]
+[node name="TopWall" type="StaticBody2D" parent="Boundaries" unique_id=1635970540]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=679013823]
-position = Vector2(0, -4)
-rotation = 3.1415927
-shape = SubResource("WorldBoundaryShape2D_va2tc")
+[node name="AreaTop" type="Area2D" parent="Boundaries/TopWall" unique_id=1130458897]
+position = Vector2(0, -319)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall/AreaTop" unique_id=710921658]
+shape = SubResource("RectangleShape2D_va2tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopWall" unique_id=731330035]
+position = Vector2(0, -32)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_cw7yk")
 
 [node name="LeftWall" type="StaticBody2D" parent="Boundaries" unique_id=1889775040]
 rotation = -1.5707964
@@ -49,8 +54,31 @@ position = Vector2(0, 4)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_cw7yk")
 
-[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=399370622]
+[node name="BottomWall" type="StaticBody2D" parent="Boundaries" unique_id=769787548]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=303501491]
-position = Vector2(0, 4)
-shape = SubResource("WorldBoundaryShape2D_xy757")
+[node name="AreaBottom" type="Area2D" parent="Boundaries/BottomWall" unique_id=1533475940]
+position = Vector2(0, 319)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall/AreaBottom" unique_id=423429152]
+shape = SubResource("RectangleShape2D_va2tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomWall" unique_id=1020227579]
+position = Vector2(0, 32)
+shape = SubResource("WorldBoundaryShape2D_cw7yk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173148722]
+
+[node name="PlayerBottomLabel" type="Label" parent="CanvasLayer" unique_id=1331408448]
+offset_left = 152.0
+offset_top = 260.0
+offset_right = 205.0
+offset_bottom = 284.0
+
+[node name="PlayerUpLabel" type="Label" parent="CanvasLayer" unique_id=1036393437]
+offset_left = 252.0
+offset_top = 260.0
+offset_right = 305.0
+offset_bottom = 284.0
+
+[connection signal="body_entered" from="Boundaries/TopWall/AreaTop" to="." method="_on_top_goal_body_entered"]
+[connection signal="body_entered" from="Boundaries/BottomWall/AreaBottom" to="." method="_on_bottom_goal_body_entered"]
