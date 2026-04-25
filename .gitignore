@@ -6,7 +6,7 @@ export_presets.cfg
 
 # --- Addons Logic ---
 # Ignore all plugin content
-addons/**/*
+# addons/**/*
 # Except for the keepalive files that preserve folder names
 !addons/**/.gitkeep
 
