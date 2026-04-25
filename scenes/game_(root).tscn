@@ -16,7 +16,6 @@ distance = -292.0
 script = ExtResource("1_va2tc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=234832830]
-zoom = Vector2(2, 1)
 
 [node name="BottomPlayer" parent="." unique_id=1928030905 instance=ExtResource("1_cw7yk")]
 position = Vector2(0, 298)
@@ -72,18 +71,20 @@ position = Vector2(0, 32)
 shape = SubResource("WorldBoundaryShape2D_cw7yk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173148722]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.75
 
 [node name="TopPlayerScoreLabel" type="Label" parent="CanvasLayer" unique_id=1331408448]
-offset_left = 152.0
-offset_top = 260.0
-offset_right = 205.0
-offset_bottom = 284.0
+offset_left = -328.00018
+offset_top = -14.666668
+offset_right = -274.66684
+offset_bottom = 14.666664
 
 [node name="BottomPlayerScoreLabel" type="Label" parent="CanvasLayer" unique_id=1036393437]
-offset_left = 252.0
-offset_top = 260.0
-offset_right = 305.0
-offset_bottom = 284.0
+offset_left = 276.0
+offset_top = -14.666668
+offset_right = 328.0
+offset_bottom = 14.666668
 
 [connection signal="body_entered" from="Boundaries/TopWall/AreaTop" to="." method="_on_top_goal_body_entered"]
 [connection signal="body_entered" from="Boundaries/BottomWall/AreaBottom" to="." method="_on_bottom_goal_body_entered"]
