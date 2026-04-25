@@ -18,7 +18,8 @@ script = ExtResource("1_va2tc")
 zoom = Vector2(2, 1)
 
 [node name="Player" parent="." unique_id=1928030905 instance=ExtResource("1_cw7yk")]
-position = Vector2(0, 298)
+position = Vector2(-206, 298)
+SPEED = 500
 
 [node name="Ball" parent="." unique_id=1293440621 instance=ExtResource("2_xy757")]
 script = ExtResource("3_va2tc")

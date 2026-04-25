@@ -1,9 +1,20 @@
 extends StaticBody2D
 
-const SPEED = 300.0
+const X_RIGHT_LIMIT : int = 263
+const X_LEFT_LIMIT : int = -263
+
+@export var SPEED : int = 300
 
 func _physics_process(delta):
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	position.x += direction * SPEED * delta
+	var direction : int = Input.get_axis("ui_left", "ui_right")
+	if direction > 0: # Right
+		if position.x <= X_RIGHT_LIMIT:
+			position.x += direction * SPEED * delta
+		else:
+			pass
+			
+	elif direction < 0: # Left
+		if position.x >= X_LEFT_LIMIT:
+			position.x += direction * SPEED * delta
+		else:
+			pass
