@@ -1,29 +1,30 @@
 extends Node
 
-# These variables "find" your UI labels when the game starts
-@onready var player_up_label = $CanvasLayer/PlayerUpLabel
-@onready var player_bottom_label = $CanvasLayer/PlayerBottomLabel
+# @onready stores the values until the node is ready for being assigned
+@onready var top_player_score_label = $CanvasLayer/TopPlayerScoreLabel
+@onready var bottom_player_score_label = $CanvasLayer/BottomPlayerScoreLabel
 
-var player_up : int = 0
-var player_bottom : int = 0
+# Global Score Storage variables
+var top_player_score : int = 0
+var bottom_player_score : int = 0
 
+# Called when the node ENTERS the scene tree for the FIRST TIME.
 func _ready():
-	update_score_ui()
+	update_score_ui() # Call once at start of game to initialize labels to 0
 
+# Function to update the labels on screen with current Global score variables.
+func update_score_ui():
+	top_player_score_label.text = str(top_player_score)
+	bottom_player_score_label.text = str(bottom_player_score)
+
+# Function to update score for each time the ball enters the top goal area
 func _on_top_goal_body_entered(body) :
 	if body.name == "Ball":
-		player_bottom += 1
+		bottom_player_score += 1
 		update_score_ui()
 
+# Function to update score for each time the ball enters the bottom goal area
 func _on_bottom_goal_body_entered(body) :
 	if body.name == "Ball":
-		player_up += 1
+		top_player_score += 1
 		update_score_ui()
-
-func update_score_ui():
-	player_up_label.text = str(player_up)
-	player_bottom_label.text = str(player_bottom)
-
-
-func _on_area_bottom_body_entered(body):
-	pass # Replace with function body.

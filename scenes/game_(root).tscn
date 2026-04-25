@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dgbixvobguwri" path="res://scripts/score.gd" id="1_va2tc"]
 [ext_resource type="PackedScene" uid="uid://caw48rrmiia17" path="res://scenes/ball.tscn" id="2_xy757"]
 [ext_resource type="Script" uid="uid://negc64pkajyj" path="res://scripts/ball.gd" id="3_va2tc"]
+[ext_resource type="Script" uid="uid://cxxq0458j2one" path="res://scripts/top_player.gd" id="3_ve4jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va2tc"]
 size = Vector2(576, 16)
@@ -17,9 +18,12 @@ script = ExtResource("1_va2tc")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=234832830]
 zoom = Vector2(2, 1)
 
-[node name="Player" parent="." unique_id=1928030905 instance=ExtResource("1_cw7yk")]
-position = Vector2(-206, 298)
-SPEED = 500
+[node name="BottomPlayer" parent="." unique_id=1928030905 instance=ExtResource("1_cw7yk")]
+position = Vector2(0, 298)
+
+[node name="TopPlayer" parent="." unique_id=2007588751 instance=ExtResource("1_cw7yk")]
+position = Vector2(0, -298)
+script = ExtResource("3_ve4jx")
 
 [node name="Ball" parent="." unique_id=1293440621 instance=ExtResource("2_xy757")]
 script = ExtResource("3_va2tc")
@@ -69,13 +73,13 @@ shape = SubResource("WorldBoundaryShape2D_cw7yk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173148722]
 
-[node name="PlayerBottomLabel" type="Label" parent="CanvasLayer" unique_id=1331408448]
+[node name="TopPlayerScoreLabel" type="Label" parent="CanvasLayer" unique_id=1331408448]
 offset_left = 152.0
 offset_top = 260.0
 offset_right = 205.0
 offset_bottom = 284.0
 
-[node name="PlayerUpLabel" type="Label" parent="CanvasLayer" unique_id=1036393437]
+[node name="BottomPlayerScoreLabel" type="Label" parent="CanvasLayer" unique_id=1036393437]
 offset_left = 252.0
 offset_top = 260.0
 offset_right = 305.0
